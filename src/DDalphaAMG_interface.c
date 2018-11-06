@@ -247,6 +247,7 @@ void DDalphaAMG_update_parameters( DDalphaAMG_parameters *mg_params, DDalphaAMG_
   m0 = 1./(2.*mg_params->kappa)-4.; 
   if( g.m0 != m0 ){
     g.m0 = m0;
+    g.setup_m0 = m0;
     THREADED(threading[0]->n_core)
       if ( g.setup_flag )
         m0_update( g.m0, &l, threading[omp_get_thread_num()] );

@@ -39,6 +39,9 @@
    *   The library makes use the following three structures,
    */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
   typedef struct init        DDalphaAMG_init;
   typedef struct parameters  DDalphaAMG_parameters;
   typedef struct status {
@@ -541,5 +544,8 @@
     int print;
  
   };
- 
+#ifdef __cplusplus
+}
+#endif
+  
 #endif

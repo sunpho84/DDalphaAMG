@@ -1,10 +1,11 @@
 # --- COMPILER ----------------------------------------
-CC = mpiicc 
+CC = mpicc 
 
 # --- CFLAGS -----------------------------------------
-CFLAGS_gnu = -std=gnu99 -Wall -pedantic -O3 -ffast-math -msse4.2 -fopenmp 
-CFLAGS_intel = -std=gnu99 -Wall -pedantic -O3  -xHOST -qopenmp 
+CFLAGS_gnu = -std=gnu99 -Wall -pedantic -fopenmp -O3-ffast-math -msse4.2
+CFLAGS_intel = -std=gnu99 -Wall -pedantic -O3  -xHOST -qopenmp
 CFLAGS = $(CFLAGS_intel)
+PREFIX=/home/francesco/QCD/SORGENTI/DDalphaAMG/install
 
 # --- DO NOT CHANGE -----------------------------------
 CPP = cpp
@@ -38,6 +39,7 @@ DEP = $(patsubst %.c,%.dep,$(GSRC))
 # H5LIB=-lhdf5 -lz
 
 # --- FLAGS FOR LIME ---------------------------------
+LIMEDIR=/home/francesco/QCD/SORGENTI/c-lime/install/
 LIMEFLAGS=-DHAVE_LIME -I$(LIMEDIR)/include
 LIMELIB= -L$(LIMEDIR)/lib -llime
 
@@ -45,8 +47,9 @@ LIMELIB= -L$(LIMEDIR)/lib -llime
 # -DPARAMOUTPUT -DTRACK_RES -DFGMRES_RESTEST -DPROFILING
 # -DSINGLE_ALLREDUCE_ARNOLDI
 # -DCOARSE_RES -DSCHWARZ_RES -DTESTVECTOR_ANALYSIS -DDEBUG
+#OPT_VERSION_FLAGS = $(CFLAGS) $(LIMEFLAGS) $(H5FLAGS) -DPARAMOUTPUT -DTRACK_RES -DSSE -DOPENMP
 OPT_VERSION_FLAGS = $(CFLAGS) $(LIMEFLAGS) $(H5FLAGS) -DPARAMOUTPUT -DTRACK_RES -DSSE -DOPENMP
-DEVEL_VERSION_FLAGS = $(CFLAGS) $(LIMEFLAGS) -DDEBUG -DPARAMOUTPUT -DTRACK_RES -DFGMRES_RESTEST -DPROFILING -DCOARSE_RES -DSCHWARZ_RES -DTESTVECTOR_ANALYSIS -DSSE -DOPENMP
+DEVEL_VERSION_FLAGS = $(CFLAGS) $(LIMEFLAGS) -DPARAMOUTPUT -DTRACK_RES -DFGMRES_RESTEST -DPROFILING -DCOARSE_RES -DSCHWARZ_RES -DTESTVECTOR_ANALYSIS -DSSE -DOPENMP
 
 
 all: execs library exec-tests
