@@ -41,7 +41,7 @@ MPI_Comm comm_cart;
 DDalphaAMG_init init;
 DDalphaAMG_parameters params;
 DDalphaAMG_status status;
-char * options = "L:p:B:l:i:w:u:e:t:h:V:v";
+char * options = "L:p:B:l:i:wmet:h:V:v";
 
 /*
  * Setting standard values for DDalphaAMG_init
