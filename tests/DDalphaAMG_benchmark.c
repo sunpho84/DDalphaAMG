@@ -247,7 +247,7 @@ int main( int argc, char *argv[] ) {
   
   for(int mu=0; mu<4; mu++) {
     init.global_lattice[mu] = coarsest_local_lattice[mu]*init.procs[mu]*init.block_lattice[mu];
-    for(int l=0; l<init.number_of_levels-1; l++) {
+    for(int l=0; l<init.number_of_levels-2; l++) {
       init.global_lattice[mu] *= 2;
     }
   }
