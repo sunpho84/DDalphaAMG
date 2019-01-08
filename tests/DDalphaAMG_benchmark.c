@@ -86,9 +86,9 @@ void help( char * arg0 ) {
   if(!printed) {
     printf0("\n\n");
     printf0("Usage: %s [<option(s)>]\n", arg0);
-    printf0("   -l T Y X Z   Local lattice size on the coarsest level in each direction\n");
-    printf0("   -p T Y X Z   Processors in each direction\n");
-    printf0("   -B T Y X Z   Block size in each direction on first level. A block size of (2 2 2 2) is used for the following levels.\n");
+    printf0("   -L T Z Y X   Local lattice size on the coarsest level in each direction\n");
+    printf0("   -p T Z Y X   Processors in each direction\n");
+    printf0("   -B T Z Y X   Block size in each direction on first level. A block size of (2 2 2 2) is used for the following levels.\n");
     printf0("   -l #         Number of levels, l (from 1 to 4)\n");
     printf0("   -i #         Number of iterations\n");
     printf0("   -w           use c_sw term (without the coarse self-coupling is diagonal)\n");
